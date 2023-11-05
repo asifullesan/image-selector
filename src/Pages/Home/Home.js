@@ -10,8 +10,7 @@ const Home = () => {
   const [selectedImages, setSelectedImages] = useState([]);
   const totalSelected = selectedImages.length;
 
-
-// drag and drop images function
+  // drag and drop images function
 
   const handleDragStart = (e, id) => {
     e.dataTransfer.setData("text/plain", id);
@@ -40,7 +39,7 @@ const Home = () => {
     setImages(updatedImages);
   };
 
-// image selection function
+  // image selection function
 
   const handleImageSelect = (imageId) => {
     setSelectedImages((prevSelected) => {
@@ -52,7 +51,7 @@ const Home = () => {
     });
   };
 
-// selected images deleting function
+  // selected images deleting function
 
   const handleDeleteSelected = () => {
     setImages((prevImages) =>
@@ -83,6 +82,11 @@ const Home = () => {
 
   return (
     <>
+      {images.length === 0 && (
+        <div className="text-warning text-center mt-5">
+          <h3>Upload your Images</h3>
+        </div>
+      )}
       <div
         className={`header-nav ${
           selectedImages.length > 0 ? "select-nav" : ""
