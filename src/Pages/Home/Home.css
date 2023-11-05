@@ -1,28 +1,29 @@
-.header-nav{
-    display: none !important;
-    border-bottom: 1px solid #ddd;
-    padding: 10px 25px;
-}
-.select-nav{
-    display: block !important;
+.header-nav {
+  display: none !important;
+  border-bottom: 1px solid #ddd;
+  padding: 10px 25px;
 }
 
-.selected-text{
-    font-weight: 700;
-    font-size: 18px;
+.select-nav {
+  display: block !important;
+}
+
+.selected-text {
+  font-weight: 700;
+  font-size: 18px;
 }
 
 .image-gallery {
-    width: 100%;
-    padding: 20px;
-  }
-  
-  .grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    grid-gap: 20px;
-  }
-  
+  width: 100%;
+  padding: 20px;
+}
+
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 1rem;
+
   .grid-item {
     position: relative;
     overflow: hidden;
@@ -31,117 +32,131 @@
     border-radius: 8px;
   }
 
-  /* .grid-item:first-child {
-    height: 400px;
-    width: 400px;
-    margin-right: 30px;
-  } */
+  .grid-item:first-child {
+    grid-column: span 2;
+    grid-row: span 2 !important;
+  }
 
-  
+  .grid-item:first-child .image-box {
+    position: relative;
+    height: 300px;
+  }
+
+  .grid-item:first-child .image-box img {
+    height: 100% !important;
+  }
+}
+
+
+
 .checkbox-label {
-    display: none;
-    position: absolute;
-    top: 15px;
-    left: 15px;
-    padding: 5px;
-    width: 15px;
-    height: 15px;
-  }
-  
-
-  .checkbox-input {
-    display: none;
-  }
-
-  /* .grid-item:hover {
-    background-color: rgba(248, 114, 114, 0.554);
-  } */
-  
-  .image-box{
-    position: relative;
-
-  }
-
-  .image-overlay{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    transition: .5s;
-    background: rgba(0, 0, 0, 0)
-  }
-
-  .image-box:hover .image-overlay{
-    background: rgba(0, 0, 0, 0.357)
-  }
+  display: none;
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  padding: 5px;
+  width: 18px;
+  height: 18px;
+}
 
 
-  .grid-item:hover .checkbox-label {
-    display: block;
-    width: 15px;
-    height: 15px;
-   
-  }
+.checkbox-input {
+  display: none;
+}
 
 
-  .selected{
-    background: rgba(0, 0, 0, 0.285)
-  }
-  .selected-input{
-    display: block;
-  }
-  
-  .grid-item img {
-    display: block;
-    width: 100% !important;
-    height: 100%;
-    transition: transform 0.2s;
-  }
-  
-  .grid-item.featured {
-    grid-column: span 2 ; /* Make the featured image larger */
-  }
-  
-  .grid-item.featured img {
-    transform: scale(1.1); /* Apply a scale transformation to the featured image */
-  }
+.image-box {
+  position: relative;
+  height: 150px;
 
-  .delete-btn{
-    color: rgb(255, 21, 0);
-    border: none;
-    background: none;
-    font-weight: 600;
-  }
-  
-  .dragging {
-    opacity: 0.5;
-    border: 2px dashed #000;
-  }
+}
 
-  .drop-area{
-    border: 2px dashed rgb(184, 184, 184);
-    height: 200px;
-    width: 200px;
-    margin-top: 3rem;
-    text-align: center;
-    border-radius: 8px;
-    position: relative;
-  }
 
-  .add-img{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
 
-  .drop-inner{
-    margin-top: 35%;
-  }
+.image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: .5s;
+  background: rgba(0, 0, 0, 0)
+}
 
-  .drop-area p{
-    font-weight: 600;
-  }
+.image-box:hover .image-overlay {
+  background: rgba(0, 0, 0, 0.357)
+}
 
- 
+
+.grid-item:hover .checkbox-label {
+  display: block;
+  width: 18px;
+  height: 18px;
+
+}
+
+
+.selected {
+  background: rgba(0, 0, 0, 0.285)
+}
+
+.selected-input {
+  display: block;
+}
+
+.grid-item img {
+  display: block;
+  width: 100% !important;
+  height: 100%;
+  transition: transform 0.2s;
+}
+
+.grid-item.featured {
+  grid-column: span 2;
+}
+
+.grid-item.featured img {
+  transform: scale(1.1);
+}
+
+.delete-btn {
+  color: rgb(255, 21, 0);
+  border: none;
+  background: none;
+  font-weight: 600;
+}
+
+.dragging {
+  opacity: 0.5;
+  border: 2px dashed #000;
+}
+
+.drop-area {
+  border: 2px dashed rgb(184, 184, 184);
+  height: 160px;
+  width: 160px;
+  margin-top: 1.5rem;
+  text-align: center;
+  border-radius: 8px;
+  position: relative;
+}
+
+.drop-area p {
+  font-size: 15px !important;
+  margin-top: 10px;
+}
+
+.add-img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.drop-inner {
+  margin-top: 35%;
+}
+
+.drop-area p {
+  font-weight: 600;
+}

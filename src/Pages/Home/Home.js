@@ -8,8 +8,10 @@ const Home = () => {
   const [isDragging, setIsDragging] = useState(false);
   const [draggedImage, setDraggedImage] = useState(null);
   const [selectedImages, setSelectedImages] = useState([]);
-  console.log(selectedImages);
   const totalSelected = selectedImages.length;
+
+
+// drag and drop images function
 
   const handleDragStart = (e, id) => {
     e.dataTransfer.setData("text/plain", id);
@@ -38,6 +40,8 @@ const Home = () => {
     setImages(updatedImages);
   };
 
+// image selection function
+
   const handleImageSelect = (imageId) => {
     setSelectedImages((prevSelected) => {
       if (prevSelected.includes(imageId)) {
@@ -48,12 +52,16 @@ const Home = () => {
     });
   };
 
+// selected images deleting function
+
   const handleDeleteSelected = () => {
     setImages((prevImages) =>
       prevImages.filter((image) => !selectedImages.includes(image.id))
     );
     setSelectedImages([]);
   };
+
+  // images uploading function
 
   const handleImageUpload = (e) => {
     const file = e.target.files[0];
@@ -92,9 +100,9 @@ const Home = () => {
           </button>
         </div>
       </div>
-      <div className="image-gallery" >
+      <div className="image-gallery">
         <div className="grid">
-          {images.map((image) => (
+          {images.map((image, index) => (
             <div
               key={image.id}
               className={`grid-item ${image.isFeatured ? "featured" : ""} ${
@@ -105,7 +113,6 @@ const Home = () => {
               onDragOver={handleDragOver}
               onDrop={(e) => handleDrop(e, image.id)}
             >
-           
               <div className="image-box">
                 <img src={image.src} alt={`Image ${image.id}`} />
                 <div className="image-overlay">
@@ -125,18 +132,6 @@ const Home = () => {
             </div>
           ))}
         </div>
-        {/* <div
-          className="drop-area"
-          onDrop={handleUpload}
-          onDragOver={handleDragOver}
-        >
-          <div className="drop-inner">
-            <div>
-            
-              <p>Drag & Drop</p>
-            </div>
-          </div>
-        </div> */}
         <div>
           <label>
             <div className="drop-area">
